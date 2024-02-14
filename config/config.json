@@ -1,0 +1,5 @@
+{
+	"cities": ["Saint Petersburg", "Khabarovsk", "Paris", "Damascus", "London", "Busan", "Samara"],
+	"refresh_rate": 30,
+	"forecast_days_number": 3
+}
