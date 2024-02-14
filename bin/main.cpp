@@ -55,11 +55,15 @@ void KeystrokeHandling (char& ch, int& i, int& forecast_days_number) {
     }
 }
 
+void CleanConsole() {
+    std::system("clear");
+}
+
 void WeatherThread(const int& refresh_rate, std::vector<CityForecast>& weather_cities, int& forecast_days_number, int& i, char& ch) {
     while (ch != 27) {
         std::this_thread::sleep_for(std::chrono::seconds(refresh_rate));
         
-        std::system("clear");
+        CleanConsole();
 
         weather_cities[i].Forecast(forecast_days_number);
     }
@@ -84,7 +88,7 @@ int main() {
     std::thread weather_thread_obj(WeatherThread, std::ref(refresh_rate), std::ref(weather_cities), std::ref(forecast_days_number), std::ref(i), std::ref(ch));
     
     do {
-        std::system("clear");
+        CleanConsole();
         
         KeystrokeHandling(ch, i, forecast_days_number);
         
